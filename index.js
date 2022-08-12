@@ -15,7 +15,7 @@ app.get('/info', (req, res, next) => {
     res.send('Proxy Service Test 2');
  });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log(`Starting Proxy at ${PORT}`);
  });
 
