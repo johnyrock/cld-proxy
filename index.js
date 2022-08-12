@@ -12,7 +12,8 @@ const PORT = 8080;
 // app.use(cors())
 
 app.get('/info', (req, res, next) => {
-    res.send('Proxy Service Test 2');
+    // console.log(cloudinary.video("samples/elephants.mp4"));
+    res.send(cloudinary.video("samples/elephants.mp4"));
  });
 
 app.listen(process.env.PORT || PORT, () => {
