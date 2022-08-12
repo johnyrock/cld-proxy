@@ -1,7 +1,8 @@
 const express = require('express');
 // const cors = require('cors')
-const cloudinary = require('cloudinary').v2;
 require('dotenv').config();
+const cloudinary = require('cloudinary').v2;
+
 
 
 const app = express();
@@ -12,8 +13,13 @@ const PORT = 8080;
 // app.use(cors())
 
 app.get('/info', (req, res, next) => {
-    // console.log(cloudinary.video("samples/elephants.mp4"));
-    res.send(cloudinary.video("samples/elephants.mp4"));
+    // console.log(cloudinary.url("samples/cloudinary-group.jpg"));
+    // res.send('test');
+    res.json({
+        number: 1,
+        name: 'John',
+        gender: 'male'
+      });
  });
 
 app.listen(process.env.PORT || PORT, () => {
