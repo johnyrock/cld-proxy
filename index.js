@@ -28,13 +28,13 @@ app.get('/info', (req, res, next) => {
     });
 });
 
-app.get('/signature', (req, res, next) => {
+app.get('/signature', async (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*")
     res.header(
       "Access-Control-Allow-Headers",
       "Origin, X-Requested, Content-Type, Accept Authorization"
     );
-    
+
     const timestamp = Math.round((new Date).getTime() / 1000);
 
     const signature = cloudinary.utils.api_sign_request({
@@ -44,8 +44,8 @@ app.get('/signature', (req, res, next) => {
     }, apiSecret);
 
     // return { timestamp, signature }
-    res.json({
-        timestamp: timestamp,
+    res.status(200).json({
+        // timestamp: timestamp,
         signature: signature
     });
 })
